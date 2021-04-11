@@ -1,14 +1,3 @@
 {
-  "contacts": [
-    {
-      "id": "Y14a_dT7m",
-      "name": "maxcom",
-      "number": "1111"
-    },
-    {
-      "id": "m_zpox5Az",
-      "name": "Talents",
-      "number": "1111"
-    }
-  ]
+  "contacts": []
 }

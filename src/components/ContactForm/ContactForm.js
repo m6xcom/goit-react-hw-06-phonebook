@@ -54,5 +54,12 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
 
 ContactForm.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      number: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    })
+  ),
   addContact: PropTypes.func,
 };

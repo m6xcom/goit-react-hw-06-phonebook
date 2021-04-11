@@ -5,10 +5,7 @@ import {
   fetchContacts,
   deleteContact,
 } from "../../redux/contacts/contacts-operations";
-import {
-  getFilter,
-  getFilteredContacts,
-} from "../../redux/contacts/contacts-selectors";
+import { getFilteredContacts } from "../../redux/contacts/contacts-selectors";
 import style from "./ContactsList.module.css";
 
 class ContactsList extends Component {
@@ -17,21 +14,19 @@ class ContactsList extends Component {
     fetchContacts();
   };
   render() {
-    const { contacts, filter, deleteContact } = this.props;
+    const { contacts, deleteContact } = this.props;
     return (
       <ul>
-        {contacts
-          .filter((el) => el.name.toLowerCase().includes(filter))
-          .map((el) => {
-            return (
-              <li className={style.contactsListItem} key={el.id}>
-                <p>
-                  {el.name} : {el.number}
-                </p>
-                <button onClick={() => deleteContact(el.id)}>Delete</button>
-              </li>
-            );
-          })}
+        {contacts.map((el) => {
+          return (
+            <li className={style.contactsListItem} key={el.id}>
+              <p>
+                {el.name} : {el.number}
+              </p>
+              <button onClick={() => deleteContact(el.id)}>Delete</button>
+            </li>
+          );
+        })}
       </ul>
     );
   }
@@ -39,7 +34,6 @@ class ContactsList extends Component {
 
 const mapStateToProps = (state) => ({
   contacts: getFilteredContacts(state),
-  filter: getFilter(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -57,6 +51,6 @@ ContactsList.propTypes = {
       number: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     })
   ),
-  filter: PropTypes.string,
   deleteContact: PropTypes.func,
+  fetchContact: PropTypes.func,
 };
