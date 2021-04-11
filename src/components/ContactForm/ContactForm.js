@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import shortid from "shortid";
 import PropTypes from "prop-types";
-import { ADDCONTACT } from "../../redux/contacts/contacts-actions";
+import { addContact } from "../../redux/contacts/contacts-operations";
 import style from "./ContactForm.module.css";
 
 const ContactForm = ({ contacts, addContact }) => {
@@ -47,7 +47,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addContact: (contact) => dispatch(ADDCONTACT(contact)),
+  addContact: (contact) => dispatch(addContact(contact)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
