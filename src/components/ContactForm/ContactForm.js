@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import shortid from "shortid";
 import PropTypes from "prop-types";
 import { addContact } from "../../redux/contacts/contacts-operations";
+import { getContacts } from "../../redux/contacts/contacts-selectors";
 import style from "./ContactForm.module.css";
 
 const ContactForm = ({ contacts, addContact }) => {
@@ -43,7 +44,7 @@ const ContactForm = ({ contacts, addContact }) => {
 };
 
 const mapStateToProps = (state) => ({
-  contacts: state.contacts.items,
+  contacts: getContacts(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

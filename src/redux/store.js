@@ -6,15 +6,8 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-// import storage from "redux-persist/lib/storage";
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { contacts } from "./contacts/contacts-reducer";
-
-// const contactsConfig = {
-//   key: "contacts",
-//   storage,
-//   blacklist: ["filter"],
-// };
 
 const store = configureStore({
   reducer: { contacts: contacts },
@@ -27,4 +20,3 @@ const store = configureStore({
 });
 
 export default store;
-// export const persistor = persistStore(store);

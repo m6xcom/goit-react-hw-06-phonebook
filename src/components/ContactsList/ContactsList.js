@@ -5,6 +5,10 @@ import {
   fetchContacts,
   deleteContact,
 } from "../../redux/contacts/contacts-operations";
+import {
+  getFilter,
+  getFilteredContacts,
+} from "../../redux/contacts/contacts-selectors";
 import style from "./ContactsList.module.css";
 
 class ContactsList extends Component {
@@ -34,8 +38,8 @@ class ContactsList extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  contacts: state.contacts.items,
-  filter: state.contacts.filter,
+  contacts: getFilteredContacts(state),
+  filter: getFilter(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
